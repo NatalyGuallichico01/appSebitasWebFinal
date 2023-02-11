@@ -31,6 +31,11 @@
         <p class="textCenter">Ingresa tus datos y fecha de tu cita</p>
 
         <form class="formulario" >
+
+        <div class="campo">
+                <h4>Las horas resaltadas con color ROJO ya han sido seleccionadas.</h4>
+            </div>
+            
             <div class="campo">
                 <label for="nombre">Nombre: </label>
                 <input id="nombre" type="text" placeholder="Ingresa tu Nombre" value="<?php echo $nombre; ?>" disabled/>
@@ -39,6 +44,8 @@
                 <label for="fecha">Fecha: </label>
                 <input id="fecha" type="date" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>"/>
             </div>
+
+           
 
             <div class="campo">
                 <label for="hora">Hora: </label>

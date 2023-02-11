@@ -42,6 +42,7 @@ $router->get('/mensaje', [LoginController::class, 'mensaje']);
 $router->get('/cita', [CitaController::class, 'index']);
 $router->get('/admin', [AdminController::class, 'index']);
 $router->get('/admin/filtro', [AdminController::class, 'filtro']);
+$router->get('/admin/filtrar', [AdminController::class, 'filtrar']);
 
 
 //$router->get('/reportes', [AdminController::class, 'index']);

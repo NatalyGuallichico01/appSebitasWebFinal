@@ -6,8 +6,12 @@ include_once __DIR__ . '/../templates/barra.php';
 
 <h2>Buscar Citas</h2>
 
+<div class="barraServicios1">
+    <a class="botonReporte" href="/admin/filtro">Reporte de Citas</a>
+     <a class="botonReporte" href="/admin/filtrar">Reporte del dia</a>
+</div>
+     
 
-     <a class="botonReporte" href="/admin/filtro">Reporte</a>
      <!-- Los cambios que se encontraban en el archivo filtro estan en generate y viceversa
     modificar en caso de backup -->
     

@@ -25,6 +25,26 @@
             cursor: not-allowed;
         }
     }
+    select{
+        flex:1;
+        border: none;
+        padding: calc(v.$separacion/4);
+        border-radius: 10rem;
+
+        &:disabled{
+            background-color: lighten(v.$morado, 30%);
+            color: v.$negro;
+            cursor: not-allowed;
+        }
+    }
+    h4{
+        color: black;
+        border: 2px solid;
+        border-radius: 10px;
+        padding: 10px;
+        background-color:v.$rojo;
+        
+    }
     
 }
 

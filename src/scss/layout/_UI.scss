@@ -61,3 +61,15 @@
         margin:0 0 1rem 0;
     }
 }
+
+.barraServicios1{
+    margin: 0px !important;
+    padding: 0px !important;
+    @include m.tablet{
+        display: flex;
+        justify-content: space-between;
+    }
+    .boton{
+        margin:0px;
+    }
+}

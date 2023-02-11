@@ -1,6 +1,7 @@
 
 <?php
 include("../includes/database.php");
+use Model\AdminCita;
 
 $consulta = "SELECT citas.id, citas.hora, citas.estado, CONCAT( usuarios.nombre, ' ', usuarios.apellido) as cliente, ";
         $consulta .= " usuarios.email, usuarios.telefono, servicios.nombre as servicio, servicios.precio  ";
@@ -11,28 +12,24 @@ $consulta = "SELECT citas.id, citas.hora, citas.estado, CONCAT( usuarios.nombre,
         $consulta .= " ON citasServicios.citaId=citas.id ";
         $consulta .= " LEFT OUTER JOIN servicios ";
         $consulta .= " ON servicios.id=citasServicios.servicioId ";
-        $consulta .= " WHERE citas.estado LIKE '%1' ";
-        //$citas=AdminCita::SQL($consulta);
-
-        $citasAtendidas=0;
-        $citasNoAtendidas=0;
-        $totalCitas=0;
-
-        
-        $datos[2]="Atendidos";
+        $consulta .= " WHERE fecha =  '{$fecha}' ";
+        $citas=AdminCita::SQL($consulta);
+        if(count($citas)===0){
+            echo "<h2>No hay Citas en esta Fecha</h2>";
+        }
 	   
 	   //echo "<h2>consulta:$consulta</h2>";
        $citas = $db->query($consulta);
 	   $columnas=mysqli_num_fields($citas);
        
 	   $contenido="<main>
-        <h1>Reporte de citas Atendidas</h1>
+        <h1>Reporte por fechas</h1>
         <table border='1'>
         <thead>
-        <tr bgcolor='#CC3D5C' color='#fff'>
+        <tr bgcolor='#CC3D5C'>
         <th>Cliente</th>
         <th>Hora</th>
-        <th>Estado</th>
+        
 		<th>Telefono</th>
 		<th>Servicio</th>
 		<th>Precio</th>
@@ -40,28 +37,20 @@ $consulta = "SELECT citas.id, citas.hora, citas.estado, CONCAT( usuarios.nombre,
         </thead>
         <tbody>";
 	   while($datos = $citas->fetch_array(MYSQLI_NUM)){
-        if($datos[2]==="1"){
-            echo "atendidos";
-        }
+       
 		     $contenido.="<tr><td>$datos[3]</td>
 						   <td>$datos[1]</td>
-						   <td>Atendido</td>
+						   
 						   <td>$datos[5]</td>
 						   <td>$datos[6]</td>
-						   <td>$datos[7]</td></tr>
-                           ";                           
-
-                           
+						   <td>$datos[7]</td></tr>";
        }
-       
-        
 
-        $citasAtendidas++;
+
 
        
-   
 	   
-	    $contenido.="<p >Total Atendidas: <span>10</span></p></tbody></table></main>";
+	    $contenido.="</tbody></table></main>";
 	
 	
 	//echo $contenido;
@@ -85,7 +74,7 @@ $consulta = "SELECT citas.id, citas.hora, citas.estado, CONCAT( usuarios.nombre,
                 left: 0cm;
                 right: 0cm;
                 height: 2cm;
-                background-color: #CC3D5C;
+                background-color: #2a0927;
                 color: white;
                 text-align: center;
                 line-height: 30px;
@@ -97,7 +86,7 @@ $consulta = "SELECT citas.id, citas.hora, citas.estado, CONCAT( usuarios.nombre,
                 left: 0cm;
                 right: 0cm;
                 height: 2cm;
-                background-color: #CC3D5C;
+                background-color: #2a0927;
                 color: white;
                 text-align: center;
                 line-height: 35px;

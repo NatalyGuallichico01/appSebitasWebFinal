@@ -14,6 +14,7 @@ use Dompdf\Optins;
 $dompdf = new Dompdf();
 ob_start();
 include "informe.php";
+include "noAtendidos.php";
 $html = ob_get_clean();
 $dompdf->loadHtml($html);
 $dompdf->render();
