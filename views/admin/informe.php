@@ -61,7 +61,7 @@ $consulta = "SELECT citas.id, citas.hora, citas.estado, CONCAT( usuarios.nombre,
        
    
 	   
-	    $contenido.="<p >Total Atendidas: <span>10</span></p></tbody></table></main>";
+	    $contenido.="<p >Total Atendidas: <span>6</span></p></tbody></table></main>";
 	
 	
 	//echo $contenido;
