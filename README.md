@@ -20,3 +20,6 @@ password: adminadmin
 - Usuario Cliente <br>
 correo: natilu@gmail.com <br>
 password: 123456
+
+### Manual de Usuario
+El manual de usuario se puede observar a traves del siguiente enlace: [Manual  de usuario](https://youtu.be/o6Seugl9l2Y)
